@@ -3,6 +3,5 @@ CREATE TABLE users (
     email TEXT NOT NULL UNIQUE,
     pwd TEXT NOT NULL,
     firstName TEXT NOT NULL,
-    lastName TEXT NOT NULL,
-    items INTEGER REFERENCES users(id) NOT NULL
+    lastName TEXT NOT NULL
 );

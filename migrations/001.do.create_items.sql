@@ -6,4 +6,5 @@ CREATE TABLE items (
     itemCost MONEY NOT NULL,
     itemPrice MONEY NOT NULL,
     itemModified TIMESTAMPTZ NOT NULL DEFAULT now(),
+    isActive BOOLEAN NOT NULL DEFAULT TRUE
 );
