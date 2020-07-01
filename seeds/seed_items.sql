@@ -1,17 +1,17 @@
 TRUNCATE items;
 TRUNCATE users;
 
-INSERT INTO items (itemSKU, itemName, itemDesc, itemCost, itemPrice, isActive) VALUES (
-    'SKU-1', 'Item Name 1', 'Item Desc 1', 2.98, 4.95,TRUE
+INSERT INTO items (sku, name, description, cost, price, isactive, inventory) VALUES (
+    'SKU-1', 'Item Name 1', 'Item Desc 1', 2.98, 4.95,TRUE, 1
 ),
 (
-    'SKU-2', 'Item Name 2', 'Item Desc 2', 1.43, 10.67,FALSE
+    'SKU-2', 'Item Name 2', 'Item Desc 2', 1.43, 10.67,FALSE, 5
 ),
 (
-    'SKU-3', 'Item Name 3', 'Item Desc 3', 4.78, 4.95,TRUE
+    'SKU-3', 'Item Name 3', 'Item Desc 3', 4.78, 4.95,TRUE, 3
 ),
 (
-    'SKU-4', 'Item Name 4', 'Item Desc 4', 100, 101.01,TRUE
+    'SKU-4', 'Item Name 4', 'Item Desc 4', 100, 101.01,TRUE,0
 );
 
 INSERT INTO users (email, pwd, firstName, lastName) VALUES (
