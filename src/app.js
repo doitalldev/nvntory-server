@@ -17,8 +17,6 @@ app.use(express.json());
 // Create an item
 app.post('/api/items', async (req, res) => {
   try {
-    console.log(req.body);
-
     const { sku, name, description, cost, price, inventory } = req.body;
     const newItem = await pool.query(
       'INSERT INTO items (sku, name, description, cost, price, inventory) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
