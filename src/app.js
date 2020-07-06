@@ -14,6 +14,9 @@ app.use(express.json());
 
 /* Routing */
 
+app.use('/auth', require('./jwtAuth'));
+app.use('/dashboard', require('./routes/dashboard'));
+
 // Create an item
 app.post('/api/items', async (req, res) => {
   try {
