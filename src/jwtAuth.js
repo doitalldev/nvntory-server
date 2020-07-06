@@ -18,7 +18,7 @@ router.post('/register', validInfo, async (req, res) => {
     ]);
 
     if (user.rows.length !== 0) {
-      return res.status(401).send('User already exists');
+      return res.status(401).json('User already exists');
     }
 
     //Bcrypt users pwd
@@ -38,7 +38,7 @@ router.post('/register', validInfo, async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json('Server error');
   }
 });
 
@@ -52,13 +52,13 @@ router.post('/login', validInfo, async (req, res) => {
     ]);
 
     if (user.rows.length == 0) {
-      return res.status(401).send('Given info is incorrect');
+      return res.status(401).json('Given info is incorrect');
     }
     //check if incoming pwd is same as db pwd
     const validPwd = await bcrypt.compare(pwd, user.rows[0].pwd);
 
     if (!validPwd) {
-      return res.status(401).send('Supplied info is incorrect');
+      return res.status(401).json('Supplied info is incorrect');
     }
 
     //give user token if corrrect
@@ -67,7 +67,7 @@ router.post('/login', validInfo, async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Failure');
+    res.status(500).json('Failure');
   }
 });
 
@@ -76,7 +76,7 @@ router.get('/is-verify', authorization, async (req, res) => {
     res.json(true);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Failure');
+    res.status(500).json('Failure');
   }
 });
 
