@@ -5,7 +5,9 @@ const jwtGenerator = require('./utils/jwtGenerator');
 const validInfo = require('./middleware/validInfo');
 const authorization = require('./middleware/authorization');
 
-//registering
+/* Create a JWT Authenitcation Token System */
+
+//Register route
 
 router.post('/register', validInfo, async (req, res) => {
   try {
@@ -71,6 +73,7 @@ router.post('/login', validInfo, async (req, res) => {
   }
 });
 
+//Checks if user has token
 router.get('/is-verify', authorization, async (req, res) => {
   try {
     res.json(true);
