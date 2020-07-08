@@ -8,19 +8,19 @@ NVNTORY is designed as an alternative to expensive inventory management systems 
 
 ### Home Page
 
-:::image type="content" source="src/images/readme-images/homepage.png" alt-text="home page":::
+![Home Page](https://github.com/binkeroni/nvntory-client/blob/master/readme-images/homepage.png)
 
 ### Dashboard
 
-:::image type="content" source="src/images/readme-images/dashboard.png" alt-text="dashboard screen":::
+![Dashboard](https://github.com/binkeroni/nvntory-client/blob/master/readme-images/dashboard.png)
 
 ### Add Item Page
 
-:::image type="content" source="src/images/readme-images/add-item-scren.png" alt-text="add item screen":::
+![Add Item Image](https://github.com/binkeroni/nvntory-client/blob/master/readme-images/add-item-scren.png)
 
 ### Edit Item
 
-![Edit Item Image](/readme-images/edit-item-modal.png)
+![Edit Item Image](https://github.com/binkeroni/nvntory-client/blob/master/readme-images/edit-item-modal.png)
 
 ### API Documentation
 
