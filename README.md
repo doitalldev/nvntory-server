@@ -1,26 +1,49 @@
-# Express Boilerplate!
+# NVNTORY
 
-This is a boilerplate project used for starting new projects!
+## Summary
 
-## Set up
+NVNTORY is designed as an alternative to expensive inventory management systems that seems to not listen to their customers. We continue to update the app with new features in order to compete with larger systems.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+### 👉 [Live Link](https://nvntory-client.binkeroni.vercel.app/) 👈
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### Home Page
 
-## Scripts
+:::image type="content" source="src/images/readme-images/homepage.png" alt-text="home page":::
 
-Start the application `npm start`
+### Dashboard
 
-Start nodemon for the application `npm run dev`
+:::image type="content" source="src/images/readme-images/dashboard.png" alt-text="dashboard screen":::
 
-Run the tests `npm test`
+### Add Item Page
 
-## Deploying
+:::image type="content" source="src/images/readme-images/add-item-scren.png" alt-text="add item screen":::
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+### Edit Item
+
+![Edit Item Image](/readme-images/edit-item-modal.png)
+
+### API Documentation
+
+#### Endpoint : /api/
+
+#### URL
+
+/api/items
+
+#### Methods
+
+GET | POST
+
+#### URL
+
+/api/items/:id
+
+#### Methods
+
+DELETE | PUT
+
+Required: id = [integer]
+
+### Technology Used
+
+I use the PERN stack with this app (Postgresql, ExpressJS, ReactJS, NodeJS) which has been a fantastic choice for this particular project.
