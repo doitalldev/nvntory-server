@@ -8,15 +8,20 @@ const { NODE_ENV } = require('./config.js');
 const ItemsRouter = require('./routes/ItemsRouters');
 const app = express();
 /* Middleware */
-app.use(morgan());
+app.use(morgan('tiny'));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 /* Routing */
 
-app.use('/auth', require('./jwtAuth'));
-app.use('/dashboard', require('./routes/dashboard'));
+// app.use('/auth', require('./jwtAuth'));
+// app.use('/dashboard', require('./routes/dashboard'));
 app.use('/api/items', ItemsRouter);
 
 /* Error Handling */

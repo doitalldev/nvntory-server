@@ -1,10 +1,8 @@
 const express = require('express');
-const pool = require('../db');
 require('dotenv').config();
-const app = require('../app');
 const ItemsService = require('./ItemsService');
 const ItemsRouter = express.Router();
-const jsonParser = express.json();
+// const jsonParser = express.json();
 
 const serializeItem = (item) => ({
   id: item.id,
@@ -20,11 +18,15 @@ const serializeItem = (item) => ({
 ItemsRouter.route('/')
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
-      .then((items) => res.json(items))
+      .then((items) => {
+        console.log(items);
+
+        res.json(items);
+      })
       .catch(next);
   })
   //Create new item
-  .post(jsonParser, (req, res, next) => {
+  .post((req, res, next) => {
     const { sku, name, description, price, cost, inventory } = req.body;
     const newItem = { sku, name, description, price, cost, inventory };
     for (const [key, value] of Object.entries(newItem)) {
@@ -33,12 +35,12 @@ ItemsRouter.route('/')
           error: { message: `${key} is required` },
         });
       }
-      ItemsService.insertItem(req.app.get('db'), newItem)
-        .then((item) => {
-          res.status(201).json(item);
-        })
-        .catch(next);
     }
+    ItemsService.insertItem(req.app.get('db'), newItem)
+      .then(() => {
+        res.status(201);
+      })
+      .catch(next);
   });
 
 ItemsRouter.route('/:id')
@@ -69,7 +71,7 @@ ItemsRouter.route('/:id')
       .catch(next);
   })
   //Update the specific item
-  .patch(jsonParser, (req, res, next) => {
+  .patch((req, res, next) => {
     const { sku, name, description, price, cost, inventory } = req.body;
     const updatedItemInfo = { sku, name, description, price, cost, inventory };
     const numValuesToChange = Object.values(updatedItemInfo).filter(Boolean)
