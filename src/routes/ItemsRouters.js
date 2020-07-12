@@ -19,8 +19,6 @@ ItemsRouter.route('/')
   .get((req, res, next) => {
     ItemsService.getAllItems(req.app.get('db'))
       .then((items) => {
-        console.log(items);
-
         res.json(items);
       })
       .catch(next);
@@ -40,6 +38,7 @@ ItemsRouter.route('/')
       .then(() => {
         res.status(201);
       })
+
       .catch(next);
   });
 
