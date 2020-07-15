@@ -35,8 +35,8 @@ ItemsRouter.route('/')
       }
     }
     ItemsService.insertItem(req.app.get('db'), newItem)
-      .then(() => {
-        res.status(201);
+      .then((item) => {
+        res.status(201).json(item);
       })
 
       .catch(next);
