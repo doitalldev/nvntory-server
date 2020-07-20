@@ -47,8 +47,7 @@ describe(`Test endpoints`, () => {
       .post(`/api/items`)
       .send(data)
       .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(201)
-      .done();
+      .type('json')
+      .expect(201);
   });
 });
